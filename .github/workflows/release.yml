@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    strategy:
+      matrix:
+        project: [ "Mg3.Utility" ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x' # SDK Version to use.
+          source-url: https://nuget.pkg.github.com/mgamlem3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - run: dotnet build --configuration Release ${{ matrix.project }}
+      - name: Create the package
+        run: dotnet pack --configuration Release ${{ matrix.project }}
+      - name: Publish the package to GPR
+        run: dotnet nuget push ${{ matrix.project }}/bin/Release/*.nupkg
