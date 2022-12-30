@@ -5,14 +5,14 @@ namespace Mg3.Json.JsonUtility;
 
 public static class JsonUtility
 {
-	public static readonly DefaultContractResolver defaultContractResolver = new()
+	public static readonly DefaultContractResolver DefaultContractResolver = new()
 	{
 		NamingStrategy = new SnakeCaseNamingStrategy()
 	};
 
-	public static readonly JsonSerializerSettings jsonSerializerSettings = new()
+	public static readonly JsonSerializerSettings JsonSerializerSettings = new()
 	{
-		ContractResolver = defaultContractResolver,
+		ContractResolver = DefaultContractResolver,
 		NullValueHandling = NullValueHandling.Ignore
 	};
 }
