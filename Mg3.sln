@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mg3.Utility", "Mg3.Utility\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mg3.Utility.Tests", "Mg3.Utility.Tests\Mg3.Utility.Tests.csproj", "{3C448A36-B0D8-4B9C-A15F-D5F7401EF95A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mg3.Json", "Mg3.Json\Mg3.Json.csproj", "{9869C107-786D-462F-97CC-F53BBB224A69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3C448A36-B0D8-4B9C-A15F-D5F7401EF95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C448A36-B0D8-4B9C-A15F-D5F7401EF95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C448A36-B0D8-4B9C-A15F-D5F7401EF95A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9869C107-786D-462F-97CC-F53BBB224A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9869C107-786D-462F-97CC-F53BBB224A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9869C107-786D-462F-97CC-F53BBB224A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9869C107-786D-462F-97CC-F53BBB224A69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

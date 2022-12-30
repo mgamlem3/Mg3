@@ -12,7 +12,7 @@ jobs:
       contents: read
     strategy:
       matrix:
-        project: [ "Mg3.Utility" ]
+        project: [ "Mg3.Utility", "Mg3.Json" ]
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
