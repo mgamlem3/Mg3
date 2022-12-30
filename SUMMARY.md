@@ -1,10 +1,15 @@
 # Table of contents
 
 * [Welcome!](README.md)
-* [Quick Start](quick-start.md)
 
-## Reference
+## Mg3.Json
 
-* [API Reference](reference/api-reference/README.md)
-  * [Pets](reference/api-reference/pets.md)
-  * [Users](reference/api-reference/users.md)
+* [Overview](mg3.json/overview.md)
+* [JsonUtility](mg3.json/jsonutility.md)
+
+## Mg3.Utility
+
+* [Overview](mg3.utility/overview.md)
+* [Enumerable Utility](mg3.utility/enumerable-utility.md)
+* [Retry Utility](mg3.utility/retry-utility.md)
+* [String Utility](mg3.utility/string-utility.md)

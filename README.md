@@ -1,21 +1,34 @@
 # Welcome!
 
-## Welcome to MyAPI
+## Welcome to MG3
 
-Welcome to MyAPI! Here you'll find all the documentation you need to get up and running with the MyAPI API.
+Welcome to MG3! Here you'll find all the documentation about how to use these packages.
 
-## Want to jump right in?
+## How to Use this Package
 
-Feeling like an eager beaver? Jump in to the quick start docs and get making your first request:
+These packages are hosted on [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages). We suggest reading their docs for in depth information
 
-{% content-ref url="quick-start.md" %}
-[quick-start.md](quick-start.md)
+1. Authenticate to GitHub Packages if you haven't already. Help can be found [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#authenticating-to-github-packages).
+2. Add the following line in your project's `.csproj`
+
+```xml
+<RepositoryUrl>https://github.com/mgamlem3/mg3</RepositoryUrl>
+```
+
+###
+
+### Add GitHub Packages as a Source
+
+If you want in depth details GitHub has a [page](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#installing-a-package) detailing how to use GitHub Packages.
+
+
+
+## Which Package Are You Using?
+
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
-## Want to deep dive?
-
-Dive a little deeper and start exploring our API reference to get an idea of everything that's possible with the API:
-
-{% content-ref url="reference/api-reference/" %}
-[api-reference](reference/api-reference/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
