@@ -8,8 +8,6 @@ Many aspects of this utility interact with [Newtonsoft's Json.NET](https://www.n
 
 `Mg3.Json.JsonUtility`
 
-``
-
 ## DefaultContractResolver
 
 {% hint style="info" %}
