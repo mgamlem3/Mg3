@@ -60,7 +60,46 @@ return s.ContainsWhitespace(); // false
 
 ## ContainsCharacterFromCollection
 
+### Description
+
+Checks to see if any character from the collection is in the source string
+
+### Example
+
+```csharp
+string s = "hello world";
+var characters = new List<char>() { 'w', 'o', 'r', 'l', 'd' };
+
+return s.ContainsCharacterFromCollection(characters.AsReadOnly()); // true
+```
+
 ## ContainsOnlyCharactersFromCollection
+
+### Description
+
+Checks to see if only characters from the collection are in the source string
+
+### Examples
+
+{% tabs %}
+{% tab title="True" %}
+```csharp
+string s = "hello";
+var characters = new List<char>() { 'h', 'e', 'l', 'o' };
+
+return s.ContainsOnlyCharactersFromCollection(characters.AsReadOnly()); // true
+```
+{% endtab %}
+
+{% tab title="False" %}
+```csharp
+string s = "hello world";
+var characters = new List<char>() { 'h', 'e', 'l', 'o' };
+
+return s.ContainsOnlyCharactersFromCollection(characters.AsReadOnly()); // false
+```
+{% endtab %}
+{% endtabs %}
 
 ## ContainsUpperCase
 
