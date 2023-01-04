@@ -38,7 +38,7 @@ Thrown when `maxRetries` is met with the failure as the `innerException`
 
 {% tabs %}
 {% tab title="Simple" %}
-This example risks throwing an exception back to the caller and will retry a maximum of 5 times.
+This example risks throwing an exception back to the caller and will try a maximum of 5 times.
 
 {% code lineNumbers="true" %}
 ```csharp
