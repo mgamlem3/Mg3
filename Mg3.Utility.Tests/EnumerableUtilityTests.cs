@@ -15,13 +15,13 @@ public sealed class EnumerableUtilityTests
 	public static List<object[]> IsNullOrEmptyTestLists =>
 		new()
 		{
-			new object[] { new List<int>(){ 1, 2, 3 }, false },
-			new object[] { new List<char>{ 'a', 'b', 'c' }, false },
+			new object[] { new List<int>() { 1, 2, 3 }, false },
+			new object[] { new List<char> { 'a', 'b', 'c' }, false },
 			new object[] { Array.Empty<object>(), true },
 			// allow null because test method supports null enumerables
-			#pragma warning disable CS8625
+#pragma warning disable CS8625
 			new object[] { null, true },
-			#pragma warning restore CS8625
+#pragma warning restore CS8625
 		};
 
 	public static List<object[]> EmptyIfNullTestLists =>
@@ -29,8 +29,8 @@ public sealed class EnumerableUtilityTests
 		{
 			new object[] { new List<int>() { 1, 2, 3 }, new List<int>() { 1, 2, 3 } },
 			// allow null because test method supports null enumerables
-			#pragma warning disable CS8625
+#pragma warning disable CS8625
 			new object[] { null, Array.Empty<object>() }
-			#pragma warning restore CS8625
+#pragma warning restore CS8625
 		};
 }
