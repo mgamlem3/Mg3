@@ -7,7 +7,7 @@ public static class JsonUtility
 {
 	public static readonly DefaultContractResolver DefaultContractResolver = new()
 	{
-		NamingStrategy = new SnakeCaseNamingStrategy()
+		NamingStrategy = new CamelCaseNamingStrategy(),
 	};
 
 	public static readonly JsonSerializerSettings JsonSerializerSettings = new()

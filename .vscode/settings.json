@@ -9,4 +9,5 @@
 		"**/bin": true,
 		"**/obj": true
 	},
+	"cSpell.words": ["backoff", "enumerables", "Newtonsoft", "Xunit"]
 }
