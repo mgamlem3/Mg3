@@ -37,8 +37,8 @@ public static class StringUtility
 	{
 		if (ignoreCase)
 			return s.Any(x => characters.Any(c => char.ToLowerInvariant(c) == char.ToLowerInvariant(x)));
-		else
-			return s.Any(x => characters.Any(c => c == x));
+
+		return s.Any(x => characters.Any(c => c == x));
 	}
 
 	/// <summary>
@@ -52,8 +52,8 @@ public static class StringUtility
 	{
 		if (ignoreCase)
 			return s.All(x => characters.Any(c => char.ToLowerInvariant(c) == char.ToLowerInvariant(x)));
-		else
-			return s.All(x => characters.Any(c => c == x));
+
+		return s.All(x => characters.Any(c => c == x));
 	}
 
 	/// <summary>
