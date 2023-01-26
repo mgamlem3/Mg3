@@ -32,4 +32,8 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --collect:"XPlat Code Coverage" --logger:"console;verbosity=detailed" --results-directory /tmp/test-results/ --no-build --verbosity detailed
+    - name: Install DeepSource CLI
+      run: curl https://deepsource.io/cli | sh
+    - name: Upload Test Coverage
+      run: ./bin/deepsource report --analyzer test-coverage --key csharp --value-file /tmp/test-results/*/coverage.cobertura.xml
