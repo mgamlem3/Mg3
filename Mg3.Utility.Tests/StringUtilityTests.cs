@@ -59,6 +59,24 @@ public sealed class StringUtilityTests
 	[MemberData(nameof(CharacterCaseTestData))]
 	public void ContainsMixedCase(string s) => Assert.Equal(s.ContainsUpperCase() && s.ContainsLowerCase(), s.ContainsMixedCase());
 
+	[Theory]
+	[InlineData("hello", "hello")]
+	[InlineData("helloWorld", "hello_world")]
+	[InlineData("HelloWorld", "hello_world")]
+	[InlineData("hello_world", "hello_world")]
+	[InlineData("hello__world", "hello_world")]
+	[InlineData("hello_world_", "hello_world")]
+	[InlineData("_hello_world", "hello_world")]
+	[InlineData("_hello_world_", "hello_world")]
+	[InlineData("_hello__world", "hello_world")]
+	[InlineData("hello  world", "hello_world")]
+	[InlineData("hello world", "hello_world")]
+	[InlineData("hello_ world", "hello_world")]
+	[InlineData("hello _world", "hello_world")]
+	[InlineData("hello World", "hello_world")]
+	[InlineData("", "")]
+	public void ToSnakeCase(string s, string expected) => Assert.Equal(expected, s.ToSnakeCase());
+
 	public static IEnumerable<object[]> CharacterListTestData =>
 	new List<object[]>
 	{
