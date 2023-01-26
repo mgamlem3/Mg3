@@ -37,3 +37,5 @@ jobs:
       run: curl https://deepsource.io/cli | sh
     - name: Upload Test Coverage
       run: ./bin/deepsource report --analyzer test-coverage --key csharp --value-file /tmp/test-results/*/coverage.cobertura.xml
+      env:
+        DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
