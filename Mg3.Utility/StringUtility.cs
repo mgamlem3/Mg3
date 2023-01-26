@@ -76,5 +76,46 @@ public static class StringUtility
 	/// <param name="s"></param>
 	/// <returns></returns>
 	public static bool ContainsMixedCase(this string s) => s.ContainsUpperCase() && s.ContainsLowerCase();
+
+	/// <summary>
+	/// Changes any string to snake_case breaking on '_', ' ', and uppercase letters
+	/// </summary>
+	/// <param name="s"></param>
+	/// <returns></returns>
+	public static string ToSnakeCase(this string s)
+	{
+		if (s.IsNullOrEmpty())
+			return string.Empty;
+
+		// we are intentionally trying to make this first letter lowercase to create a snake case string
+#pragma warning disable CA1308
+		var newString = s[0] == '_' ? "" : s[0].ToString().ToLowerInvariant();
+#pragma warning restore CA1308
+
+		for (var i = 1; i < s.Length; i++)
+		{
+			var c = s[i];
+
+			if (char.IsUpper(c))
+			{
+				if (newString.Last() != '_')
+					newString += '_';
+				newString += char.ToLowerInvariant(c);
+			}
+			else if (c is '_' or ' ')
+			{
+				if (i == s.Length - 1)
+					continue;
+				else if (newString.Last() != '_')
+					newString += '_';
+			}
+			else
+			{
+				newString += c;
+			}
+		};
+
+		return newString;
+	}
 }
 

@@ -1,4 +1,5 @@
 using Mg3.Utility.EnumerableUtility;
+using System.Collections.ObjectModel;
 
 namespace Mg3.Utility.Tests.EnumerableUtility;
 
@@ -11,6 +12,14 @@ public sealed class EnumerableUtilityTests
 	[Theory]
 	[MemberData(nameof(EmptyIfNullTestLists))]
 	public void EmptyIfNull<T>(IEnumerable<T> enumerable, IEnumerable<T> expectedResult) => Assert.Equal(expectedResult, enumerable.EmptyIfNull());
+
+	[Theory]
+	[MemberData(nameof(AsReadOnlyCollectionLists))]
+	public void AsReadOnlyCollection<T>(IEnumerable<T> enumerable)
+	{
+		var transformedEnumerable = enumerable.AsReadOnlyCollection();
+		Assert.Equal(typeof(ReadOnlyCollection<T>), transformedEnumerable.GetType());
+	}
 
 	public static List<object[]> IsNullOrEmptyTestLists =>
 		new()
@@ -33,4 +42,12 @@ public sealed class EnumerableUtilityTests
 			new object[] { null, Array.Empty<object>() }
 #pragma warning restore CS8625
 		};
+
+	public static List<object[]> AsReadOnlyCollectionLists => new()
+	{
+		new object[] { new List<int>() { 1, 2, 3 } },
+		new object[] { new List<int>() { } },
+		new object[] { new ReadOnlyCollection<int>(new List<int>() { 1, 2, 3 }) },
+		new object[] { new ReadOnlyCollection<int>(new List<int>() { }) },
+	};
 }
