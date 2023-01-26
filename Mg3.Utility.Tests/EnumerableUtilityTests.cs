@@ -45,9 +45,9 @@ public sealed class EnumerableUtilityTests
 
 	public static List<object[]> AsReadOnlyCollectionLists => new()
 	{
-		new object[] {new List<int>() { 1, 2, 3 }},
-		new object[] {new List<int>() {}},
-		new object[] {new ReadOnlyCollection<int>(new List<int>() { 1, 2, 3 })},
-		new object[] {new ReadOnlyCollection<int>(new List<int>() {})},
+		new object[] { new List<int>() { 1, 2, 3 } },
+		new object[] { new List<int>() { } },
+		new object[] { new ReadOnlyCollection<int>(new List<int>() { 1, 2, 3 }) },
+		new object[] { new ReadOnlyCollection<int>(new List<int>() { }) },
 	};
 }
