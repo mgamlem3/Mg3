@@ -10,7 +10,7 @@ public static class EnumerableUtility
 	/// <typeparam name="T"></typeparam>
 	/// <param name="enumerable"></param>
 	/// <returns>true if collection is null or has 0 values; false otherwise</returns>
-	public static bool IsNullOrEmpty<T>(this IEnumerable<T> enumerable) => enumerable is null || !enumerable.Any();
+	public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable) => enumerable is null || !enumerable.Any();
 
 	/// <summary>
 	/// Returns an empty <c>Collection<T></c> if enumerable is null
@@ -18,5 +18,13 @@ public static class EnumerableUtility
 	/// <typeparam name="T"></typeparam>
 	/// <param name="enumerable"></param>
 	/// <returns></returns>
-	public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> enumerable) => enumerable is null ? new Collection<T>() : enumerable;
+	public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T>? enumerable) => enumerable is null ? new Collection<T>() : enumerable;
+
+	/// <summary>
+	/// Turns an IEnumerable<T> into a ReadOnlyCollection<T>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="enumerable"></param>
+	/// <returns></returns>
+	public static ReadOnlyCollection<T> AsReadOnlyCollection<T>(this IEnumerable<T> enumerable) => new(enumerable.ToList());
 }
