@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Mg3.Utility.StringUtility;
 
@@ -9,14 +10,14 @@ public static class StringUtility
 	/// </summary>
 	/// <param name="s"></param>
 	/// <returns></returns>
-	public static bool IsNullOrEmpty(this string? s) => string.IsNullOrEmpty(s);
+	public static bool IsNullOrEmpty([NotNullWhen(false)] this string? s) => string.IsNullOrEmpty(s);
 
 	/// <summary>
 	/// Implements <c>string.IsNullOrWhitespace(...)</c> as extension method.
 	/// </summary>
 	/// <param name="s"></param>
 	/// <returns></returns>
-	public static bool IsNullOrWhitespace(this string? s) => string.IsNullOrWhiteSpace(s);
+	public static bool IsNullOrWhitespace([NotNullWhen(false)] this string? s) => string.IsNullOrWhiteSpace(s);
 
 	/// <summary>
 	/// Checks to see if string contains whitespace
