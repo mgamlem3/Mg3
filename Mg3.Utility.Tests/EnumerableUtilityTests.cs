@@ -13,6 +13,44 @@ public sealed class EnumerableUtilityTests
 	[MemberData(nameof(EmptyIfNullTestLists))]
 	public void EmptyIfNull<T>(IEnumerable<T> enumerable, IEnumerable<T> expectedResult) => Assert.Equal(expectedResult, enumerable.EmptyIfNull());
 
+	[Fact]
+	public void ListAsReadOnlyList()
+	{
+		// AsIReadOnlyList should not rewrap a List
+		var list = new List<int> { 1, 2 };
+		Assert.Equivalent(list, list.AsIReadOnlyList());
+	}
+
+	[Fact]
+	public void ReadOnlyCollectionAsReadOnlyList()
+	{
+		// AsReadOnlyList should not rewrap a ReadOnlyCollection
+		var list = new List<int> { 1, 2 };
+		IEnumerable<int> readOnlyList = new ReadOnlyCollection<int>(list);
+		Assert.Equivalent(readOnlyList, readOnlyList.AsIReadOnlyList());
+	}
+
+	[Fact]
+	public void MutateListAsReadOnlyList()
+	{
+		// AsIReadOnlyList does not guarantee that the collection can't be mutated by someone else
+		var list = new List<int> { 1, 2 };
+		var readOnlyList = list.AsIReadOnlyList();
+		list.Add(3);
+		Assert.Equivalent(3, readOnlyList.Count);
+	}
+
+	[Fact]
+	public void DictionaryAsReadOnlyList()
+	{
+		// AsIReadOnlyList must duplicate a non-IList
+		var dictionary = new Dictionary<int, int> { { 2, 4 } };
+		var readOnlyList = dictionary.AsIReadOnlyList();
+		dictionary.Add(3, 9);
+		Assert.Equivalent(1, readOnlyList.Count);
+		Assert.Equivalent(new KeyValuePair<int, int>(2, 4), readOnlyList[0]);
+	}
+
 	[Theory]
 	[MemberData(nameof(AsReadOnlyCollectionLists))]
 	public void AsReadOnlyCollection<T>(IEnumerable<T> enumerable)
