@@ -59,6 +59,34 @@ public sealed class EnumerableUtilityTests
 		Assert.Equal(typeof(ReadOnlyCollection<T>), transformedEnumerable.GetType());
 	}
 
+	[Fact]
+	public void WhereNotNullDoesNotModifyNonNullable()
+	{
+		var list = new List<Number>() { GetRandomNumber(), GetRandomNumber(), GetRandomNumber() };
+		Assert.Equivalent(list, list.WhereNotNull());
+	}
+
+	[Fact]
+	public void WhereNotNullRemovesNull()
+	{
+		var list = new List<Number?>() { null, GetRandomNumber(), GetRandomNumber() };
+		Assert.True(list.WhereNotNull().All(x => x is not null));
+	}
+
+	[Fact]
+	public void LazyWhereNotNullDoesNotModifyNonNullable()
+	{
+		var list = new List<Number>() { GetRandomNumber(), GetRandomNumber(), GetRandomNumber() };
+		Assert.Equivalent(list, list.LazyWhereNotNull());
+	}
+
+	[Fact]
+	public void LazyWhereNotNullRemovesNull()
+	{
+		var list = new List<Number?>() { null, GetRandomNumber(), GetRandomNumber() };
+		Assert.True(list.LazyWhereNotNull().All(x => x is not null));
+	}
+
 	public static List<object[]> IsNullOrEmptyTestLists =>
 		new()
 		{
@@ -88,4 +116,16 @@ public sealed class EnumerableUtilityTests
 		new object[] { new ReadOnlyCollection<int>(new List<int>() { 1, 2, 3 }) },
 		new object[] { new ReadOnlyCollection<int>(new List<int>() { }) },
 	};
+
+	public class Number
+	{
+		public int Value { get; set; }
+	}
+
+	public Number GetRandomNumber() => new()
+	{
+		Value = m_rand.Next(),
+	};
+
+	private readonly Random m_rand = new();
 }
