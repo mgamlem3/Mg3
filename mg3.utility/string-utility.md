@@ -1,4 +1,4 @@
-# String Utility
+# ✍ String Utility
 
 ## Summary
 
@@ -190,3 +190,29 @@ return s.ContainsMixedCase(); // true
 ```
 {% endtab %}
 {% endtabs %}
+
+## ToSnakeCase
+
+### Description
+
+This takes any string and will convert it to snake case breaking on `_`,  , and uppercase letters
+
+### Examples
+
+```
+"hello" -> "hello"
+"helloWorld" -> "hello_world"
+"HelloWorld" -> "hello_world"
+"hello_world" -> "hello_world"
+"hello__world" -> "hello_world"
+"hello_world_" -> "hello_world"
+"_hello_world" -> "hello_world"
+"_hello_world_" -> "hello_world"
+"_hello__world" -> "hello_world"
+"hello  world" -> "hello_world"
+"hello world" -> "hello_world"
+"hello_ world" -> "hello_world"
+"hello _world" -> "hello_world"
+"hello World" -> "hello_world"
+"" -> ""
+```
