@@ -55,9 +55,6 @@ public static class EnumerableUtility
 	/// <exception cref="ArgumentNullException"></exception>
 	public static IEnumerable<T> LazyWhereNotNull<T>(this IEnumerable<T?> enumerable) where T : class
 	{
-		if (enumerable is null)
-			throw new ArgumentNullException(nameof(enumerable));
-
 		foreach (var element in enumerable)
 		{
 			if (element is not null)
