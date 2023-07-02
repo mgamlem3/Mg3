@@ -37,4 +37,28 @@ public static class EnumerableUtility
 	/// <param name="enumerable"></param>
 	/// <returns></returns>
 	public static ReadOnlyCollection<T> AsReadOnlyCollection<T>(this IEnumerable<T> enumerable) => new(enumerable.ToList());
+
+	/// <summary>
+	/// Returns a non nullable IEnumerable<T> without null values
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="enumerable"></param>
+	/// <returns></returns>
+	public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> enumerable) where T : class => enumerable.Where(e => e is not null).Select(e => e!);
+
+	/// <summary>
+	/// Returns a non nullable IEnumerable<T> without null values. Lazily evaluates enumerable.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="enumerable"></param>
+	/// <returns></returns>
+	/// <exception cref="ArgumentNullException"></exception>
+	public static IEnumerable<T> LazyWhereNotNull<T>(this IEnumerable<T?> enumerable) where T : class
+	{
+		foreach (var element in enumerable)
+		{
+			if (element is not null)
+				yield return element;
+		}
+	}
 }
