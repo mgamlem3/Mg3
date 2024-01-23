@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 namespace Mg3.Utility.Tests.StringUtility;
 public sealed class StringUtilityTests
 {
+#pragma warning disable xUnit1012 // Allow passing null for testing purposes
 	[Theory]
 	[InlineData("")]
 	[InlineData(null)]
