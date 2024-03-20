@@ -1,4 +1,4 @@
-# Welcome!
+# 👋 Welcome!
 
 ## Welcome to MG3
 
@@ -15,13 +15,9 @@ These packages are hosted on [GitHub Packages](https://docs.github.com/en/packag
 <RepositoryUrl>https://github.com/mgamlem3/mg3</RepositoryUrl>
 ```
 
-###
-
 ### Add GitHub Packages as a Source
 
 If you want in depth details GitHub has a [page](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#installing-a-package) detailing how to use GitHub Packages.
-
-
 
 ## Which Package Are You Using?
 
