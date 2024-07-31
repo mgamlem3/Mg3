@@ -18,7 +18,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '7.0.x' # SDK Version to use.
+          dotnet-version: '8.0.x' # SDK Version to use.
           source-url: https://nuget.pkg.github.com/mgamlem3/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Mg3.Utility.EnumerableUtility;
 
@@ -18,7 +19,7 @@ public static class EnumerableUtility
 	/// <typeparam name="T"></typeparam>
 	/// <param name="enumerable"></param>
 	/// <returns></returns>
-	public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T>? enumerable) => enumerable is null ? new Collection<T>() : enumerable;
+	public static IEnumerable<T> EmptyIfNull<T>([NotNull] this IEnumerable<T>? enumerable) => enumerable is null ? enumerable = [] : enumerable;
 
 	/// <summary>
 	/// Turns an IEnumerable<T> into a IReadOnlyList<T>
@@ -27,8 +28,7 @@ public static class EnumerableUtility
 	/// <param name="enumerable"></param>
 	/// <returns></returns>
 	public static IReadOnlyList<T> AsIReadOnlyList<T>(this IEnumerable<T> enumerable) =>
-			enumerable as IReadOnlyList<T> ??
-			(enumerable is IList<T> list ? (IReadOnlyList<T>) list : enumerable.ToList().AsReadOnly());
+		enumerable as IReadOnlyList<T> ?? (enumerable is IList<T> list ? (IReadOnlyList<T>) list : enumerable.ToList().AsReadOnly());
 
 	/// <summary>
 	/// Turns an IEnumerable<T> into a ReadOnlyCollection<T>
