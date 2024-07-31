@@ -28,8 +28,7 @@ public static class EnumerableUtility
 	/// <param name="enumerable"></param>
 	/// <returns></returns>
 	public static IReadOnlyList<T> AsIReadOnlyList<T>(this IEnumerable<T> enumerable) =>
-			enumerable as IReadOnlyList<T> ??
-			(enumerable is IList<T> list ? (IReadOnlyList<T>) list : enumerable.ToList().AsReadOnly());
+		enumerable as IReadOnlyList<T> ?? (enumerable is IList<T> list ? (IReadOnlyList<T>) list : enumerable.ToList().AsReadOnly());
 
 	/// <summary>
 	/// Turns an IEnumerable<T> into a ReadOnlyCollection<T>
